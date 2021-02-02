@@ -1,0 +1,26 @@
+<!--pages/mine/order/order.wxml-->
+<i-tabs current="{{ current }}" color="#5DAF05" bindchange="handleChange">
+    <i-tab key="tab1" title="待收货"></i-tab>
+    <i-tab key="tab2" title="已完成"></i-tab>
+</i-tabs>
+<view class="order-list">
+  <view class="order-item" wx:for="{{list}}" wx:key >
+    <i-cell title="{{item.storename}}" value="{{item.buydate}}"></i-cell>
+    <view class="item-mid flex row">
+      <view class="mid-left">{{item.productname}}</view>
+      <view class="mid-right">
+        <view>x{{item.number}}</view>
+        <view>￥{{item.totalprice}}</view>
+      </view>
+    </view>
+    <view class="item-bot flex">
+      <view class="item-btn kefu-btn" wx:if="{{current === 'tab1'}}" bindtap="copy">(退款)添加客服</view>
+      <view class="item-btn sure-btn" style="margin-left: 48rpx" wx:if="{{current === 'tab1'}}" data-id="{{item.tradeId}}" bindtap="sure">确认收货(消费)</view>
+      <view class="item-btn no-btn" style="margin-left: 48rpx" wx:if="{{current != 'tab1'}}">已收货(消费)</view>
+    </view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{ list && list.length == 0 || !islogin }}">
+  <image src="../../../image/noData.png"></image>
+  <view class="no-tip">您还没有订单哦</view>
+</view>

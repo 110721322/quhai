@@ -1,0 +1,55 @@
+<!--pages/mine/joinMember/joinMember.wxml-->
+<import src="../../../lib/wxParse/wxParse.wxml"/>
+<view class="mine-top">
+  <image src="../../../image/back.png" class="back" bindtap="onBack"></image>
+  <view class="userinfo">
+    <block >
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="infomation">
+        <view class="userinfo-nickname">{{userInfo.nickName}}
+          
+        </view>
+        <view class='telphone' wx:if="{{ telphone.length == 11 }}">{{telphone}}</view>
+      </view>
+    </block>
+
+  </view>
+</view>
+<view class='member-pic'>
+  <image src="../../../image/quanyi.png"></image>
+</view>
+
+<view class="card-box" wx:for="{{cardList}}" wx:key wx:if="{{item.cardinfo.length != 0}}">
+  <view class="card-type">
+    <view class="card-title" >{{item.storename}}</view>
+    <!-- data-index="{{item.LCP_CardType}}"  -->
+    <view class="renew" >
+      <view class="renew-item  {{item.id==tabCur?'renew-sel cur':''}}"  wx:for="{{item.cardinfo}}" wx:key  data-month="{{item.limit}}" data-price="{{item.price}}" data-id="{{item.id}}" bindtap='tabSelect'>
+        <view class="re-price" wx:if="{{LWU_IsDistributor}}">返￥{{item.commission}}</view>
+        <view class="date">{{item.name}}</view>
+        <view class="price" wx:if="{{item.isfirst}}">
+          <text>￥</text>
+        {{item.discountprice}}</view>
+        <view class="price" wx:else>
+          <text>￥</text>
+        {{item.price}}</view>
+        
+        <image src="../../../image/sel2.png" wx:if="{{item.id === tabCur}}"></image>
+        <image src="../../../image/sel.png" wx:else></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="member-caption" wx:if="{{quanyi}}">
+  <view class="caption-title">
+    会员权益说明
+  </view>
+  <view class="caption-detail" wx:for="{{quanyi}}" wx:key>{{item}}</view>
+  
+</view>
+<view class="btn-box">
+  <view class="btn" bindtap="pay">
+  <text wx:if="{{cardPrice > 0}}">￥{{cardPrice}}</text>
+  立即开通</view>
+</view>
+

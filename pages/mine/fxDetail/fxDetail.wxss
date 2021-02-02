@@ -1,0 +1,59 @@
+/* pages/mine/fxDetail/fxDetail.wxss */
+page{
+  background-color: #fff;
+}
+
+.mid-list{
+  background-color: #fff;
+  color: #222;
+}
+
+.list-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 108rpx;
+  padding: 30rpx 0;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.list-item span{
+  position: absolute;
+  top: 34rpx;
+  right: 0;
+  color: #FF5733;
+  font-size: 24rpx;
+}
+
+/* 未参与过 */
+.no-data{
+  width: 100%;
+  height: 100%;
+  padding: 236rpx 0 0 162rpx;
+  background: #fff;
+}
+
+.no-data image{
+  width: 413rpx;
+  height: 271rpx;
+}
+
+.no-tip{
+  font-size:27rpx;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  text-align: left;
+  padding-left: 90rpx;
+}
+
+.tips{
+  width: 100%;
+  height: 230rpx;
+  
+}
+
+.tips image{
+  width: 100%;
+  height: 100%;
+}

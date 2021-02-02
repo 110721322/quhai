@@ -1,0 +1,26 @@
+<!--pages/mall/mall/mall.wxml-->
+<scroll-view scroll-x class="bg-white nav">
+  <view class='flex text-center' wx:if="{{tabData && tabData.length != 0}}">
+    <view class="cu-item flex-sub {{index==tabCur?'nav-sel':''}}" wx:for="{{tabData}}" wx:key bindtap='tabSelect' data-index="{{index}}" data-id='{{item.id}}' >
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+</scroll-view>
+<view class="card-list">
+  <view class="card-item" wx:for="{{list}}" wx:key data-id="{{item.commodityid}}" bindtap="toDetail">
+    <image src="{{item.showimage}}"></image>
+    <view class="card-info">
+      <view style="color: #222;font-size: 26rpx;">{{item.commodityname}}</view>
+      <view class="flex row">
+        <view class="price">
+          <text style="font-size: 18rpx">￥</text>{{item.price}}
+        </view>
+        <view class="re-price" wx:if="{{LWU_IsDistributor === 1}}">返￥{{item.rebate}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{ tabData && tabData.length === 0}}">
+  <image src="../../../image/noData.png"></image>
+  <view class="no-tip">暂无商品哦</view>
+</view>

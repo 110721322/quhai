@@ -1,0 +1,48 @@
+<!--pages/mine/minefx/minefx.wxml-->
+<!-- <view class="top-box">
+  <view class="jc">
+    <view class="title-box">
+      <view>奖金池（元）</view>
+      <view>已到账（元）</view>
+    </view>
+    <view class="money-box">
+      <view>150.00</view>
+      <view style="color: #222">35.00</view>
+    </view>
+  </view>
+  <view class="top-btn" bindtap="showTip">提现</view>
+  <view class="top-tip">注：奖金池金额不代表可提现金额。提现金额为确认收货或者7天自动确认后到账 分佣金额！</view>
+</view> -->
+<view class="mid-box cu-list menu">
+  <view class="cu-item arrow mid-title" catchtap='goInvolved'>
+    <view class='content' hover-class='none'>分销明细
+      <text >仅展示最近3条记录</text>
+    </view>
+  </view>
+  <view class="mid-list">
+    <view class="cu-item list-item" wx:for="{{list}}" wx:key>
+      <view>{{item.productname}}</view>
+      <view>{{item.username}}</view>
+      <view style="position: relative">{{item.paydate}}
+        <span>+{{item.rebate}}</span>
+      </view>
+    </view>
+    
+  </view>
+</view>
+
+<view class="bottom-box">
+  <view class="bottom-t">注：1.通过您的推荐二维码的消费者的每次消费您都享受永久奖金分佣。</view>
+  <view class="bottom-t">2.通过您转发小程序的消费者每次消费您都享受永久奖金分佣。</view>
+  <view class="bottom-t">3.若您推荐的用户已经注册则无效</view>
+  <view class="show-btn" bindtap="showCode">查看我的分销码</view>
+</view>
+
+<view class='main-top' hidden="{{hideCode}}">
+  <view class='code-content'>
+    <!-- <canvas canvas-id="orderQrcode" style="width: 650rpx; height: 650rpx;"></canvas> -->
+    <image src="{{url}}" style="width:100%;height: 100%;" bindlongpress="saveImage"></image>
+  </view>
+  <!-- <button class='copy' style="width: 524rpx"  bindtap='copy'>复制</button> -->
+</view>
+<view class="black{{ tabShow ? 'mask' : ''}}" bindtap='showHidden' catchtouchmove='true'></view>

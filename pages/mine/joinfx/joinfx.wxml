@@ -1,0 +1,5 @@
+<!--pages/mine/joinfx/joinfx.wxml-->
+<view class="fx">
+  <image src="http://146.56.195.154/image/%E5%88%86%E9%94%80%E5%9B%BE@3x.png" style="height: {{windowH}}px;"></image>
+  <view class="fix-btn" bindtap="joinfx"></view>
+</view>

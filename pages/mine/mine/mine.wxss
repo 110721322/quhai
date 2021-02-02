@@ -1,0 +1,181 @@
+/* pages/mine/mine/mine.wxss */
+page{
+  background-color: #fff;
+}
+
+.user-info {
+  width: 100%;
+  display: flex;
+}
+
+.avatar image {
+  width: 110rpx;
+  height: 110rpx;
+  margin-left: 23rpx;
+  margin-top: 16rpx;
+}
+
+.content {
+  width: 100%;
+}
+
+.content .title {
+  margin-top: 18rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 600;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 30rpx;
+}
+
+
+/* .cu-btn:not([class*="bg-"]) {
+  
+} */
+
+.userinfo {
+  display: flex;
+  margin-bottom: 40rpx;
+}
+
+.userBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 25rpx;
+}
+
+.userinfo-avatar {
+  width: 110rpx;
+  height: 110rpx;
+  margin: 46rpx 0 20rpx 40rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #222;
+  margin-left: 28rpx;
+  font-size: 31rpx;
+  font-weight: bold;
+}
+
+.member-icon{
+  width: 71rpx;
+  height: 23rpx;
+  margin: 50rpx 0 20rpx 00rpx;
+}
+
+.infomation {
+  margin-top: 52rpx;
+  margin-left: 22rpx;
+}
+
+.bg-white {
+  margin: -96rpx 24rpx 0rpx 24rpx;
+}
+
+.guide{
+  width: 690rpx;
+  height: 191rpx;
+  margin: -96rpx 24rpx 0rpx 24rpx;
+  border-radius: 13rpx;
+}
+
+.guide image{
+  width: 100%;
+  height: 100%;
+  border-radius: 13rpx;
+}
+
+.telphone {
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+  color: #222;
+  font-size: 25rpx;
+  font-weight: 400;
+}
+
+.task-box {
+  width: 702rpx;
+  margin-top: 20rpx;
+}
+
+.act {
+  height: 102rpx;
+  display: flex;
+  max-width: 100%;
+}
+
+.act image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 20rpx;
+  margin-top: 36rpx;
+}
+
+.text-co {
+  color: #333;
+  font-size: 29rpx;
+}
+
+.text-col {
+  color: #666;
+}
+
+
+.radiu {
+  border-radius: 13rpx;
+  background:linear-gradient(0deg,rgba(247,225,176,1),rgba(254,244,219,1));
+  padding: 34rpx 56rpx;
+  position: relative;
+}
+
+.radiu image{
+  width: 221rpx;
+  height: 137rpx;
+  position: absolute;
+  top: 27rpx;
+  right: 67rpx;
+}
+
+.mine-memebr{
+  font-size:35rpx;
+  font-weight:bold;
+  color:rgba(160,99,36,1);
+}
+
+.member-tip{
+  font-size:22rpx;
+  font-weight:400;
+  color:rgba(160,99,36,1);
+  padding-top: 5rpx;
+}
+
+.now-view{
+  width: 143rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 24rpx;
+  background-color: #A06324;
+  color: #fff;
+  background:rgba(160,99,36,1);
+  border-radius:18rpx;
+  margin-top: 16rpx;
+}
+
+
+.mine-top{
+  width: 100%;
+  height: 403rpx;
+  background:linear-gradient(0deg,rgba(235,213,162,1),rgba(226,187,105,1));
+  border-radius:0px 0px 33px 33px;
+  padding-top: 80rpx;
+}
+
+.mine-top-w{
+  width: 100%;
+  height: 403rpx;
+  background:#fff;
+  border-radius:0px 0px 33px 33px;
+  padding-top: 80rpx;
+}

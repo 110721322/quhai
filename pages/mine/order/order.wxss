@@ -1,0 +1,101 @@
+/* pages/mine/order/order.wxss */
+page{
+  background-color: #f5f5f5;
+}
+
+.order-list{
+  background-color: #f5f5f5;
+  padding: 30rpx 18rpx;
+}
+
+.order-item{
+  background-color: #fff;
+  border-radius: 14rpx;
+}
+
+.item-mid{
+  height: 152rpx;
+}
+
+.mid-left{
+  width: 50%;
+  line-height: 152rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+  padding-left: 22rpx;
+}
+
+.mid-right{
+  width: 50%;
+  text-align: right;
+  padding-top: 48rpx;
+  padding-right: 30rpx;
+  font-weight: 300;
+}
+
+.item-bot{
+  height: 112rpx;
+  padding: 26rpx 30rpx;
+  justify-content: flex-end;
+}
+
+.item-btn{
+  width:206rpx;
+  height:60rpx;
+  font-weight: 600;
+  border-radius:30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.kefu-btn{
+  color: #0B96F7;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(11, 150, 247, 1);
+}
+
+.sure-btn{
+  color: #fff;
+  background:rgba(93,175,5,1);
+  
+}
+
+.no-btn{
+  color: #fff;
+  background:#BEDF9B;
+}
+
+
+/* 未参与过 */
+.no-data{
+  width: 100%;
+  height: 100%;
+  padding: 236rpx 0 0 162rpx;
+  background: #f5f5f5;
+}
+
+.no-data image{
+  width: 413rpx;
+  height: 271rpx;
+}
+
+.no-tip{
+  font-size:27rpx;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  text-align: left;
+  padding-left: 90rpx;
+}
+
+.tips{
+  width: 100%;
+  height: 230rpx;
+  
+}
+
+.tips image{
+  width: 100%;
+  height: 100%;
+}

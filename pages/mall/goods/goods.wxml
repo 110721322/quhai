@@ -1,0 +1,76 @@
+<!--pages/home/detail/detail.wxml-->
+<swiper class="banner "  circular="true" indicator-dots='true' interval="5000" duration="500" indicator-active-color='#fff'   bindchange='swiperChange' wx:if='{{list.bannerimage[0]}}'>
+  <swiper-item wx:for="{{list.bannerimage}}" wx:key id='pad' class="{{cardCur==index?'cur':''}}">
+    <image src="{{item}}"></image>
+  </swiper-item>
+</swiper>
+
+<view class="card-info">
+    <view style="color: #222;font-size: 26rpx;">{{list.commodityname}}</view>
+    <view class="flex row posi">
+      <view class="price">
+        <text style="font-size: 18rpx">￥</text>{{list.price}}
+      </view>
+      <view class="re-price" wx:if="{{LWU_IsDistributor === 1}}">返￥{{list.rebate}}</view>
+    </view>
+  </view>
+
+<view class="add posi flex row">
+  <view>购买数量</view>
+  <i-input-number value="{{ value1 }}"  min="0" max="100"  bindchange="handleChange1"  />
+</view>
+<view class="img-title">详情介绍</view>
+<view class="detail-info">
+    <image src="{{list.detailImage}}"></image>
+</view>
+
+<view class="bottom-box">
+  <!-- <view class="no-address">点击添加地址</view> -->
+  <view class="address">
+    <view class="address-top flex row">
+      <view>{{default.name}}  {{default.phone}}  {{default.address}}</view>
+    </view>
+    <view class="address-bot flex row">
+      <view bindtap="showSel">更换地址</view>
+      <view style="margin-left: 48rpx;color:#FF5733;" bindtap="showAdd">添加新地址</view>
+    </view>
+  </view>
+  <view class="btn" bindtap="payMent">立即购买</view>
+</view>
+
+<view class="address-tip" hidden="{{address}}">
+  <i-panel title="添加收货地址" i-class="tip-title" style="font-weight:bold;">
+    <i-input  title="收货人" maxlength="10" placeholder="名字"  style="font-weight:normal;" bind:change="getName" />
+    <i-input value="{{ value2 }}" type="number" title="联系电话" maxlength="11" placeholder="请输入手机号" style="font-weight:normal;" bind:change="getTel" />
+    
+    <view class="section" style="font-weight:normal;">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker">
+            收货地址      <text style="color: #ccc; padding-left:10rpx">{{region[0]}}，{{region[1]}}，{{region[2]}}</text> 
+          </view>
+        </picker>
+    </view>
+  <i-input value="{{ value3 }}" type="textarea" title="详细地址" maxlength="50" placeholder="请填写详细地址(小区、门牌号等)" maxlength="50" style="font-weight:normal;" bind:change="getAddress" />
+</i-panel>
+  <view class="btn address-posi" style="background-color:#ccc;color:#fff;" wx:if="{{noValue}}" >保存地址</view>
+  <view class="btn address-posi" bindtap="ManagePersonAddress" wx:else>保存地址</view>
+</view>
+<view class="address-tip" hidden="{{selAddress}}" style="overflow:auto; ">
+  <i-panel title="选择收货地址" i-class="tip-title" style="font-weight:bold;">
+    <view class="address-item posi" wx:for="{{addressList}}" wx:key data-item="{{item}}" bindtap="toSel">
+      <view class="item-top flex"  >
+      <view class="name posi">{{item.name}}
+          <image src="../../../image/user.png"></image>
+        </view>
+        <view class="phone posi" style="margin-left: 110rpx">{{item.phone}}
+        <image src="../../../image/phone.png"></image></view>
+      </view>
+      <view class="item-bot">{{item.address}}</view>
+      
+      <image class="edit" src="../../../image/edit.png"></image>
+    </view>
+  
+  </i-panel>
+</view>
+<view class="black{{ tabShow ? 'mask' : ''}}" bindtap='showHidden' catchtouchmove='true'></view>
+

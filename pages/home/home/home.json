@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-icon": "../../../dist/icon/index",
+    "i-collapse": "../../../dist/collapse/index",
+    "i-collapse-item": "../../../dist/collapse-item/index"
+  },
+  "navigationBarTitleText": "闲时王卡",
+  "enablePullDownRefresh": true
+}

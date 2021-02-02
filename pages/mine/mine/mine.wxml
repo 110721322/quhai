@@ -1,0 +1,85 @@
+<view class="mine-top" wx:if="{{ isMember }}">
+  <view class="userinfo">
+    <block >
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="infomation">
+        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+        <view class='telphone' wx:if="{{ telphone.length == 11 }}">{{telphone}}</view>
+      </view>
+      <image class="member-icon" src="../../../image/member2.png" mode="cover"></image>
+    </block>
+  </view> 
+</view>
+<view class="mine-top-w" wx:else>
+  <view class="userinfo" wx:if="{{ islogin }}">
+    <block >
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="infomation">
+        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+        <view class='telphone'>{{telphone}}</view>
+      </view>
+      <!-- <image class="member-icon" src="../../../image/member2.png" mode="cover"></image> -->
+    </block>
+  </view>
+  <view class="userinfo" bindtap="login" wx:else>
+    <block >
+      <image class="userinfo-avatar" src="../../../image/ava.png" mode="cover"></image>
+      <view class="infomation">
+        <view class="userinfo-nickname">立即登陆</view>
+        <view class='telphone'>成为会员享受免费打球权益</view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='bg-white radiu' wx:if="{{ isMember && islogin }}" bindtap="myMember">
+  <view class="mine-memebr" wx:if="{{ cardNum && cardNum > 0 }}">我的会员卡({{cardNum}})</view>
+  <view class="mine-memebr" wx:else>我的会员卡</view>
+  <view class="member-tip">闲时王卡会员卡，场地免费用</view>
+  <view class="now-view">立即查看</view>
+  <image src="../../../image/membert.png"></image>
+</view>
+<view class="guide" wx:elif="{{ islogin }}">
+  <image src="../../../image/wbg.png"></image>
+</view>
+<view class="guide" wx:else bindtap="login">
+  <image src="../../../image/wbg.png"></image>
+</view>
+
+<view class="cu-list menu margin-top-xl">
+  <view class="cu-item arrow" catchtap='toInvolved'>
+    <view class='content' hover-class='none'>
+      <text class='text-co'>参与过的</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" catchtap='toOrder'>
+    <view class='content' hover-class='none'>
+      <text class='text-co'>我的订单</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" catchtap='tofx'>
+    <view class='content' hover-class='none'>
+      <text class='text-co'>加入分销</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" catchtap='toAddress'>
+    <view class='content' hover-class='none'>
+      <text class='text-co'>地址管理</text>
+    </view>
+  </view>
+  <!-- <view class="cu-item arrow" catchtap='toPhoto'>
+    <view class='content' hover-class='none'>
+      <text class='text-co'>照片认证</text>
+    </view>
+  </view> -->
+  <view class="cu-item arrow" catchtap='toService'>
+    <view class='content' hover-class='none'>
+      <text class='text-co'>联系客服</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" catchtap='toAbout'>
+    <view class='content' hover-class='none'>
+      <text class='text-co'>关于我们</text>
+    </view>
+  </view>
+
+</view>

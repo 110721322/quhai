@@ -1,0 +1,107 @@
+<!--pages/home/shop/shop.wxml-->
+<swiper class="banner "  circular="true" indicator-dots='true' interval="5000" duration="500" indicator-active-color='#fff'   bindchange='swiperChange' wx:if='{{swiperItem[0]}}'>
+  <swiper-item wx:for="{{shopInfo.showImage}}" wx:key="index" id='pad' class="{{cardCur==index?'cur':''}}">
+    <image src="{{item}}"></image>
+  </swiper-item>
+</swiper>
+<view class="shop-info">
+  <view class="info-title"  wx:if="{{shopInfo.storename && shopInfo.storename != '' }}" >{{shopInfo.storename}}</view>
+  <view class="info-text" wx:if="{{shopInfo.opentime  && shopInfo.opentime != ''}}" >营业时间：{{shopInfo.opentime}}</view>
+  <view class="info-text posi" bindtap="callB" wx:if="{{shopInfo.phone  && shopInfo.phone != ''}}" >商家电话：{{shopInfo.phone}}
+    <image src="../../../image/telb.png"></image>
+  </view>
+  <view class="info-text posi" style="margin: 0" data-address='{{shopInfo.address}}' data-long='{{shopInfo.lng}}' data-lat='{{shopInfo.lat}}' bindtap="toShop" wx:if="{{shopInfo.address && shopInfo.address != ''}}">{{shopInfo.address}}
+    <image src="../../../image/navigate.png"></image>
+  </view>
+</view>
+
+<view class="member-qy" bindtap="myMember">
+  <image src="../../../image/qy.png"></image>
+</view>
+
+<view class="shop-list" wx:if="{{shopInfo.storecommodity && shopInfo.storecommodity.length > 0}}">
+  <view class="list-title">特价商城</view>
+  <view class="list">
+    <view class="list-item flex row"  wx:for="{{shopInfo.storecommodity}}" wx:key="index" data-id="{{item.id}}" bindtap="toDetail">
+      <image src="{{item.showimage}}"></image>
+      <view class="item-info">
+        <view class="info-d">订</view>
+        <view class="line"></view>
+        <view class="price">
+        <text style="font-size: 18rpx">￥</text>{{item.onlinepayment}}</view>
+        <view class="re-price" wx:if="{{LWU_IsDistributor === 1}}">返￥{{item.rebate}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="shop-list" style="margin-bottom: 100rpx">
+  <view class="list-title">现场环境</view>
+  <view class="img-list">
+    <view class="img-item" wx:for="{{shopInfo.detailImage}}" wx:key="index">
+      <image src="{{item}}"></image>
+    </view>
+  </view>
+</view>
+<view class="btn" bindtap="showDate">立即预约</view>
+<!-- 预约日期 -->
+<view class="date-box" hidden="{{showDate}}">
+  <view class="date-title" >
+    <view class="week-top">
+      <view class='flex text-center'>
+        <view class="cu-item flex-sub {{index==today?'text-green cur':''}}" wx:for="{{weekData}}" wx:key="index" bindtap='tabSelect' data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class="week-bottom">
+        <view class='flex text-center'>
+          <view class="week-item flex-sub {{index==today2?'week-sel2 cur':''}}" wx:for="{{dayData2}}" wx:key="index" bindtap='tabSelect' data-index="{{index}}">
+            {{item}}
+          </view>
+        </view>
+    </view>
+  </view>
+  <!-- style="height:calc(100vh - 550rpx)" -->
+  <view class=" flex">
+    <view class="left-date"></view>
+    <view class="right-date">
+      <scroll-view class="VerticalNav nav scroll-h" scroll-y scroll-with-animation scroll-top="{{verticalNavTop}}" >
+      <view class="cu-item {{index==tabCur2?'text-sel cur':''}}" wx:for="{{spaceDateList}}" wx:key="index" bindtap='tabSelect2' data-index="{{index}}" data-id="{{item.id}}" data-price="{{item.price}}" data-time="{{item.starttime}}" data-time2="{{item.endtime}}">
+        
+        <view class="date-time">{{item.starttime}}-{{item.endtime}}</view>
+        <view class="date-people">已约: {{item.person}}/{{item.limitperson}}</view>
+      </view>
+    </scroll-view>
+    </view>
+  </view>
+  <view class="date-btn" bindtap="submit">立即预约</view>
+</view>
+<!-- 支付差价 -->
+<view class="pay-box" hidden="{{isPay}}">
+  <view class="pay-content">
+    <view class="pay-title">该场次需额外付费
+      <text>需支付</text>
+    </view>
+    <view class="pay-time">{{timeVal}}-{{timeVal2}}
+      <text>{{timePrice}}元</text>
+    </view>
+  </view>
+  <view class="pay-btn" bindtap="payment">确认预约</view>
+</view>
+
+<!-- 提示 -->
+<view class="tip-box{{ tipShow ? 'show' : ''}}">
+  <view class="tip-title">预约确认</view>
+  <view class="tip-main">您即将预约{{tipName}}{{timeVal}}场次，预约成功以后活动截止前无法预约{{tipName}}其余场次</view>
+  <view class="tip-bottom flex">
+    <view class="tip-btn btn-left" bindtap="tipCancel">取消</view>
+    <view class="tip-btn btn-right" bindtap="tipSure">确认</view>
+  </view>
+</view>
+<!-- <view class="black{{ tabShow ? 'mask' : ''}}"  catchtouchmove='true'></view> -->
+<view class="black{{ dateShow ? 'mask' : ''}}" bindtap='showHidden' catchtouchmove='true'></view>
+<view class="success-box{{ successShow ? 'show' : ''}}">
+  <view class="success-title">预约成功</view>
+  <view class="success-main">预约成功即可前往场地，到场出示预约单即可，请准时到达哦</view>
+</view>

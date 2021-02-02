@@ -1,0 +1,131 @@
+<view class='action'>
+  <image class='before-image' bindtap='showCityList' src='../../../image/loction.png'></image>
+  <text bindtap='showCityList'>{{location}}</text>
+  <image class='after-image' src='../../../image/down.png'></image>
+</view>
+
+<!-- <view class="bg-white nav" style="position: relative;"> -->
+<view style="background: #fff;position: relative;">
+  <view class='flex text-center' style="width: 85%;overflow: hidden;">
+  <scroll-view scroll-x class="bg-white nav" scrollLeft="{{scrollLeft}}" >
+    <view class="cu-item flex-sub {{index==tabCur?'nav-sel':''}}" wx:for="{{tabData}}" wx:key bindtap='tabSelect' data-index="{{index}}" data-id='{{item.id}}'>
+      <text>{{item.text}}</text>
+    </view>
+    </scroll-view>
+    <view class="posi-icon" bindtap="showType">
+      <i-icon type="unfold" size="24" />
+    </view>
+  </view>
+</view>
+<!-- </view> -->
+
+<view class="type-tips" hidden="{{hideType}}">
+  <view class="type-title">全部
+    <view class="posi-type" bindtap="showTypen">
+      <i-icon type="packup" size="24" />
+    </view>
+  </view>
+  <view class="type-box">
+    <view class="cu-item {{index==tabCur?'type-sel':''}}"  style="margin-right:40rpx;margin-bottom:18rpx;" wx:for="{{tabData}}" wx:key bindtap='tabSelect' data-index="{{index}}" data-id='{{item.id}}'>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+</view>
+
+
+<swiper class="banner "  circular="true" indicator-dots='true' interval="5000" duration="500" indicator-active-color='#fff'   bindchange='swiperChange' wx:if='{{swiperItem[0]}}'>
+  <swiper-item wx:for="{{swiperItem}}" wx:key id='pad' class="{{cardCur==index?'cur':''}}">
+    <image src="{{item.imgUrl}}"></image>
+  </swiper-item>
+</swiper>
+<!-- <view class="week">
+  <view class="week-top">
+    <view class='flex text-center'>
+      <view class="cu-item flex-sub {{index==today?'text-green cur':''}}" wx:for="{{weekData}}" wx:key>
+        {{item}}
+      </view>
+    </view>
+  </view>
+  <view class="week-bottom">
+      <view class='flex text-center'>
+        <view class="week-item flex-sub {{index==today?'week-sel cur':''}}" wx:for="{{dayData}}" wx:key>
+          {{item}}
+        </view>
+      </view>
+  </view>
+</view> -->
+<!-- list -->
+<view class="list-box" >
+    <view class="list-item" wx:for="{{spaceList}}" wx:key>
+      <view class="item-top" bindtap="toShop" data-id='{{item.id}}' data-name='{{item.storename}}'>
+        <view class="flex">
+          <view class="item-name">
+            {{item.storename}}
+          </view>
+          <!-- <image src="../../../image/free.png" class="member-free"></image> -->
+        </view>
+        
+        <view class='status round back1'  wx:if='{{item.status == "空闲中"}}'>{{item.status}}</view>
+        <view class='status round back2'  wx:elif='{{item.status == "忙碌中"}}'>{{item.status}}</view>
+        <view class='status round back3'  wx:elif='{{item.status == "已约满"}}'>{{item.status}}</view>
+        <view class='status round back4'  wx:else>{{item.status}}</view>
+      </view>
+      <view class="item-image" bindtap="toShop" data-id='{{item.id}}' data-name='{{item.storename}}'>
+        <image src="{{item.imgurl}}"></image>
+        <!-- <image src="http://renxuanwang.com/mCourt.png"></image> -->
+      </view>
+      <view class="item-bottom">
+        <view class="adress text-hidden">{{item.address}}</view>
+        <view class="item-distance" bindtap="shopNavigation" data-address='{{item.address}}' data-long='{{item.lng}}' data-lat='{{item.lat}}'>{{item.distance}}km
+          <image src='../../../image/navigate.png'></image>
+        </view>
+      </view>
+    </view>
+</view>
+<view class="no-data" wx:if="{{ spaceList && spaceList.length == 0 }}">
+  <image src="../../../image/qhw.png"></image>
+  <view class="no-tip">今日场次为空</view>
+</view>
+<!-- 预约日期 -->
+<view class="date-box" hidden="{{showDate}}">
+<view class="date-title" >
+  <view class="week-bottom">
+      <view class='flex text-center'>
+        <view class="week-item flex-sub {{index==today2?'week-sel2 cur':''}}" wx:for="{{dayData2}}" wx:key bindtap='tabSelect4' data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+  </view>
+</view>
+<!-- style="height:calc(100vh - 550rpx)" -->
+<view class=" flex">
+  <view class="left-date"></view>
+  <view class="right-date">
+    <scroll-view class="VerticalNav nav scroll-h" scroll-y scroll-with-animation scroll-top="{{verticalNavTop}}" >
+    <view class="cu-item {{index==tabCur2?'text-sel cur':''}}" wx:for="{{spaceDateList}}" wx:key bindtap='tabSelect2' data-index="{{index}}" data-id="{{item.F_ScheduleId}}" data-time="{{item.F_FreeTime}}">
+      
+      <view class="date-time">{{item.F_FreeTime}}</view>
+      <view class="date-people">已约: {{item.F_ReservePerson}}/{{item.F_LimitPerson}}</view>
+    </view>
+  </scroll-view>
+  </view>
+</view>
+<view class="date-btn" bindtap="submit">立即预约</view>
+</view>
+
+<view class="tip-box{{ tipShow ? 'show' : ''}}">
+  <view class="tip-title">预约确认</view>
+  <view class="tip-main">您即将预约{{tipName}}{{timeVal}}场次，预约成功以后活动截止前无法预约{{tipName}}其余场次</view>
+  <view class="tip-bottom flex">
+    <view class="tip-btn btn-left" bindtap="tipCancel">取消</view>
+    <view class="tip-btn btn-right" bindtap="tipSure">确认</view>
+  </view>
+</view>
+<view class="black{{ tabShow ? 'mask' : ''}}" bindtap='showHidden' catchtouchmove='true'></view>
+<view class="black{{ dateShow ? 'mask' : ''}}" bindtap='closeDate' catchtouchmove='true'></view>
+<view class="success-box{{ successShow ? 'show' : ''}}">
+  <view class="success-title">预约成功</view>
+  <view class="success-main">预约成功即可前往场地，到场出示预约单即可，请准时到达哦</view>
+</view>
+
+

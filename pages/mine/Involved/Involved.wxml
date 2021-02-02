@@ -1,0 +1,34 @@
+<!--pages/mine/Involved/Involved.wxml-->
+<view class="order-box" wx:for="{{orderList}}" wx:key>
+  <view class="order-item">
+    <view class="item-top">
+      <view class="type">
+        <image src="../../../image/badminton.png" class="ball-pic"></image>
+        <!-- <view>羽毛球</view> -->
+        <image src="../../../image/free.png" class="member-free"></image>
+      </view>
+      <image src="../../../image/parti.png" class="involved"></image>
+    </view>
+    <view class="item-mid">
+      <view class="mid-title">预约时间</view>
+      <view class="mid-time">{{item.date}}</view>
+      <view class="mid-time">{{item.start}}-{{item.end}}</view>
+    </view>
+    <view class="item-bottom">
+      <view class="space">场地名：{{item.storename}}</view>
+      <view class="adress-box">
+        <view class="adress">{{item.address}}</view>
+        <!-- <view class="item-distance">3.2km
+          <image src='../../../image/navigate.png'></image>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  
+</view>
+<view class="white-view"></view>
+<view class="no-data" wx:if="{{ orderList && orderList.length == 0 }}">
+  <image src="../../../image/noData.png"></image>
+  <view class="no-tip">您还没有参与过哦</view>
+</view>
+

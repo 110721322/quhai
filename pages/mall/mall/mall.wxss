@@ -1,0 +1,83 @@
+/* pages/mall/mall/mall.wxss */
+.nav-sel{
+  font-size: 41rpx;
+  font-weight: bolder;
+  color: #222;
+  /* text-decoration: underline; */
+}
+
+.nav-sel text{
+  border-bottom: 4rpx #5DAF05 solid ;
+}
+
+.card-list{
+  padding: 30rpx;
+}
+
+.card-item{
+  border-radius:14rpx 14rpx 14rpx 14rpx;
+  background-color: #fff;
+  margin-bottom: 24rpx;
+}
+
+.card-item image{
+  border-radius:14rpx 14rpx 0rpx 0rpx;
+  width: 100%;
+  height: 264rpx;
+}
+
+.card-info{
+  color: #FF5733;
+  font-size: 28rpx;
+  
+  padding: 18rpx 26rpx 10rpx;
+}
+
+.price{
+  line-height: 72rpx;
+  margin-right: 30rpx;
+}
+
+.re-price{
+  /* width: 80rpx; */
+  height:36rpx;
+  background:rgba(255,216,0,1);
+  border-radius:4px;
+  color: #222;
+  font-size: 15rpx;
+  line-height: 36rpx;
+  margin-top: 18rpx;
+  padding: 0 6rpx;
+}
+
+/* 未参与过 */
+.no-data{
+  width: 100%;
+  height: 100%;
+  padding: 236rpx 0 0 162rpx;
+  /* background: #fff; */
+}
+
+.no-data image{
+  width: 413rpx;
+  height: 271rpx;
+}
+
+.no-tip{
+  font-size:27rpx;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  text-align: left;
+  padding-left: 138rpx;
+}
+
+.tips{
+  width: 100%;
+  height: 230rpx;
+  
+}
+
+.tips image{
+  width: 100%;
+  height: 100%;
+}

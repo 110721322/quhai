@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "city": "../../../component/cityList/cityList"
+  },
+  "navigationBarTitleText": "选择地址"
+}

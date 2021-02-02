@@ -1,0 +1,6 @@
+<!--pages/mine/about/about.wxml-->
+<view class="box">
+  <image src="http://renxuanwang.com/quhai.png"></image>
+  <view class="name">闲时王卡小程序</view>
+  <view class="version">版本号：1.0</view>
+</view>

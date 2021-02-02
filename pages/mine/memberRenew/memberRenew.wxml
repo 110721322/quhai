@@ -1,0 +1,66 @@
+<!--pages/mine/memberRenew/memberRenew.wxml-->
+<view class="mine-top">
+  <image src="../../../image/back.png" class="back" bindtap="onBack"></image>
+  <view class="userinfo">
+    <block >
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="infomation">
+        <view class="userinfo-nickname">{{userInfo.nickName}}
+          <text class='telphone' wx:if="{{ telphone.length == 11 }}">({{telphone}})</text>
+        </view>
+        <view class="time">到期时间：{{cardTime}}</view>
+      </view>
+    </block>
+
+  </view>
+</view>
+<view class="card-title">超嗨会员卡·{{storename}}</view>
+<scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="renew" >
+    <view class="renew-item {{index==tabCur?'renew-sel cur':''}}" data-index="{{index}}" data-id="{{item.id}}" data-time="{{item.LCP_CardTerm}}" data-price="{{item.LCP_Price}}" wx:for="{{cardList}}" wx:key bindtap='tabSelect'>
+      <view class="date">{{item.limit}}个月</view>
+      <view class="price">
+        <text>￥</text>
+      {{item.price}}</view>
+      <view class="re-price">返￥{{item.commission}}</view>
+      <!-- <image src="../../../image/sel.png"></image> -->
+    </view>
+  </view>
+</scroll-view>
+<!-- <view class="renew" >
+  <view class="renew-item {{index==tabCur?'renew-sel cur':''}}" data-index="{{index}}" data-id="{{item.LCP_ID}}" wx:for="{{cardList}}" wx:key bindtap='tabSelect'>
+    <view class="date">{{item.LCP_CardTerm}}个月</view>
+    <view class="price">
+      <text>￥</text>
+    {{item.LCP_Price}}</view>
+    <image src="../../../image/sel.png"></image>
+  </view>
+</view> -->
+
+<view class="member-caption">
+  <view class="caption-title">
+    会员权益说明
+  </view>
+  <view class="caption-detail">1.购买{{cardName}}，在预约时间段内，免费使用该场地以及相应的服务（使用时间以平台展示为准）</view>
+  <view  class="caption-detail"> 2.购买后趣嗨客服将添加您为好友为您做后续服务，或者您可直接在【我的】-【联系客服】添加客服微信</view>
+</view>
+<view class="btn-box">
+  <view class="btn" bindtap="pay">
+  <text wx:if="{{cardPrice > 0}}">￥{{cardPrice}}</text>
+  立即续费</view>
+</view>
+<view class="more">更多会员</view>
+<scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="more-box" >
+    <view class="more-item" wx:for="{{othersCard}}" wx:key>
+      <view class="more-name">{{othersName}}</view>
+      <view class="more-date">{{item.LCP_CardTerm}}个月</view>
+      <view class="more-price flex">
+        <view class="more-btn" bindtap="payNow" data-id="{{item.LCP_ID}}" data-price="{{item.LCP_Price}}" data-time="{{item.LCP_CardTerm}}">立即开通</view>
+        <view class="price-right">￥{{item.LCP_Price}}</view>
+      </view>
+    </view>
+   
+  </view>
+  
+</scroll-view>

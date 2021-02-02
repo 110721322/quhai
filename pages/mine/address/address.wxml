@@ -1,0 +1,23 @@
+<!--pages/mine/address/address.wxml-->
+<view class="address-box" wx:if="{{ orderList && orderList.length > 0 || islogin}}">
+  <view class="address-item posi" wx:for="{{orderList}}" wx:key data-item="{{item}}" bindtap="toAdd">
+    <view class="item-top flex"  >
+      <view class="name posi">{{item.name}}
+        <image src="../../../image/user.png"></image>
+      </view>
+      <view class="phone posi" style="margin-left: 110rpx">{{item.phone}}
+      <image src="../../../image/phone.png"></image></view>
+    </view>
+    <view class="item-bot">{{item.province}} {{item.city}} {{item.area}} {{item.address}}</view>
+    
+    <image class="edit" src="../../../image/edit.png"></image>
+  </view>
+</view>
+<view class="no-data" wx:else>
+  <image src="../../../image/noData.png"></image>
+  <view class="no-tip">
+  <view>您还没有常用地址哦</view>
+  <view>点击下方按钮添加常用收货地址</view>
+</view>
+</view>
+<view class="add-btn" bindtap="toAdd">添加新地址</view>

@@ -1,0 +1,4 @@
+<!--pages/home/address/address.wxml-->
+<view>
+ <city></city>
+</view>

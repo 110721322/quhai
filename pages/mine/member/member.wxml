@@ -1,0 +1,39 @@
+<!--pages/mine/member/member.wxml-->
+<view class="mine-top">
+  <image src="../../../image/back.png" class="back" bindtap="onBack"></image>
+  <view class="userinfo">
+    <block >
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="infomation">
+        <view class="userinfo-nickname">{{userInfo.nickName}}
+          <image src="../../../image/member2.png" class="posi-img"></image>
+        </view>
+        <view class='telphone' wx:if="{{ telphone.length == 11 }}">{{telphone}}</view>
+      </view>
+    </block>
+
+  </view>
+</view>
+<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 1111</button> -->
+<view class='member-pic'>
+  <image src="../../../image/quanyi.png"></image>
+</view>
+
+<view class="title">我的会员卡</view>
+<!-- cardList{{item.storename}} 
+wx:if="{{item.F_MemberType == '2001' || item.F_MemberType == '2002' || item.F_MemberType == '2003'}}"-->
+<view class="card-box" wx:for="{{cardList}}" wx:key>
+  <view class="card-item">
+    <view class="card-title flex" bindtap="toShop" data-id="{{item.storeid}}">
+      <view class="card-name" >{{item.storename}}</view>
+      <view class="card-time">到期时间：{{item.expiretime}}</view>
+    </view>
+    <view class="card-pic" bindtap="toShop" data-id="{{item.storeid}}">
+      <image src="{{item.vipicon}}" ></image>
+    </view>
+    <view class="card-btn">
+      <view class="btn" bindtap="renew"  data-id='{{item.storeid}}' data-time='{{item.expiretime}}'>立即预约</view>
+    </view>
+  </view>
+  
+</view>

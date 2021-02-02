@@ -1,0 +1,258 @@
+/* pages/reservation/reservation/reservation.wxss */
+page{
+  background-color: #fff;
+}
+.order-box{
+  width: 100%;
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.order-item{
+  border-radius: 13rpx;
+  width: 100%;
+  /* height: 357rpx; */
+  background-color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.item-top{
+  width: 100%;
+  height: 87rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+.item-top .ball-pic{
+  width: 37rpx;
+  height: 37rpx;
+  position: absolute;
+  top: 25rpx;
+  left: 30rpx;
+}
+
+.item-top .member-free{
+  width: 71rpx;
+  height: 23rpx;
+  margin-left: 12rpx;
+}
+
+.type{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 22rpx 0 30rpx 86rpx;
+}
+
+.item-mid{
+  width: 100%;
+  height: 152rpx;
+  position: relative;
+}
+
+.mid-title{
+  text-align: center;
+  font-size: 28rpx;
+  padding: 0rpx 0 10rpx 0;
+  color: #333;
+}
+
+.mid-time{
+  text-align: center;
+  font-size: 39rpx;
+  padding-bottom: 10rpx;
+  color: #222;
+}
+
+.cancel{
+  position: absolute;
+  top: 32rpx;
+  right: 30rpx;
+  font-size: 25rpx;
+  font-weight: bold;
+  color: #5DAF05;
+}
+
+.item-bottom{
+  width: 100%;
+  height: 117rpx;
+}
+
+.status{
+  font-size: 24rpx;
+  vertical-align: middle;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #FF5733;
+  font-weight: 500;
+  padding: 0rpx 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  margin: 22rpx 34rpx 0 0;
+}
+
+.space{
+  padding: 22rpx 30rpx 0 30rpx;
+  font-size: 27rpx;
+}
+
+.adress-box{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  font-size: 24rpx;
+  padding-left: 30rpx;
+}
+
+.adress{
+  padding: 16rpx 0;
+}
+
+.item-distance{
+  padding-right: 74rpx;
+  padding-top: 18rpx;
+}
+
+.item-distance image{
+  width: 37rpx;
+  height: 37rpx;
+  position: absolute;
+  top: 12rpx;
+  right: 18rpx;
+}
+
+/* 取消弹窗 */
+.cancel-box{
+  width: 553rpx;
+  /* height: 263rpx; */
+  background:rgba(255,255,255,1);
+  border-radius:13rpx;
+  position: fixed;
+  left: 98rpx;
+  top: 408rpx;
+  z-index: 120;
+}
+
+.cancel-boxshow{
+  display: none;
+}
+
+.tip-title{
+  width: 100%;
+  height: 107rpx;
+  font-size: 31rpx;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 45rpx;
+  padding-bottom: 30rpx;
+}
+
+.tip-main{
+  width: 100%;
+  /* height: 74rpx; */
+  padding: 0 42rpx 48rpx;
+  font-size: 28rpx;
+  color:rgba(51,51,51,1);
+}
+
+.tip-bottom{
+  border-top: 1rpx solid rgba(245,245,245,1);
+}
+
+.tip-btn{
+  width: 50%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 31rpx;
+}
+
+.btn-left{
+  color: #333;
+  border-right: 1rpx solid rgba(245,245,245,1);
+}
+
+.btn-right{
+  color: #5DAF05;
+}
+
+.blackmask{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  position: fixed;
+  top: 0;
+}
+
+/* 未参与过 */
+.no-data{
+  width: 100%;
+  height: 100%;
+  padding: 236rpx 0 0 162rpx;
+  background: #fff;
+}
+
+.no-data image{
+  width: 413rpx;
+  height: 271rpx;
+}
+
+.no-tip{
+  font-size:27rpx;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  text-align: left;
+  padding-left: 90rpx;
+}
+
+.tips{
+  width: 100%;
+  height: 230rpx;
+  
+}
+
+.tips image{
+  width: 100%;
+  height: 100%;
+}
+
+.sure-btn{
+  width: 142rpx;
+  height: 54rpx;
+  background: #5DAF05;
+  border-radius: 26rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 54rpx;
+  position: absolute;
+  top: 84rpx;
+  right: 9rpx;
+}
+
+.sure-btn2{
+  width: 142rpx;
+  height: 54rpx;
+  background: red;
+  border-radius: 26rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 54rpx;
+  position: absolute;
+  top: 84rpx;
+  right: 9rpx;
+}

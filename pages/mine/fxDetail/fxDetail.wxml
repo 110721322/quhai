@@ -1,0 +1,14 @@
+<!--pages/mine/fxDetail/fxDetail.wxml-->
+<view class="mid-list">
+    <view class="cu-item list-item" wx:for="{{list}}" wx:key>
+      <view>{{item.productname}}</view>
+      <view>{{item.username}}</view>
+      <view style="position: relative">{{item.paydate}}
+        <span>+{{item.rebate}}</span>
+      </view>
+    </view>
+  </view>
+  <view class="no-data" wx:if="{{ list && list.length == 0 }}">
+  <image src="../../../image/noData.png"></image>
+  <view class="no-tip">您还没有分销记录哦</view>
+</view>

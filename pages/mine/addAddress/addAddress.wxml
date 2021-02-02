@@ -1,0 +1,33 @@
+<!--pages/mine/addAddress/addAddress.wxml-->
+<view class="address-item" >
+  <i-input  title="收货人" value="{{ name }}" maxlength='50' border="" autofocus placeholder="名字" i-class="item-h" bind:change="getName"/>
+</view>
+<view class="address-item">
+  <i-input  type="number"  title="手机号" value="{{ tel }}" border="" maxlength='11' placeholder="请输入手机号" i-class="item-h" bind:change="getTel" />
+</view>
+<view class="address-item flex region-picker" >
+  <view style="padding-right: 20rpx;color:#000;font-size:26rpx;font-weight:500;">收货地址</view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker" style="color: #ccc;font-size:26rpx;font-weight:500;">
+      {{region[0]}}  {{region[1]}}  {{region[2]}}
+    </view>
+  </picker>
+  
+</view>
+<view style="width: 100%;margin-left:30rpx;border:0 solid #e9eaec;border-bottom-width:1px;"></view>
+<view class="address-item" >
+  <i-input title="详细地址" value="{{ detail }}" placeholder="请输入详细地址(最多50字)" maxlength="50" i-class="item-h"  bind:change="getAddress" />
+</view>
+
+<view class="a-switch">
+  <i-cell title="设为默认">
+        <i-switch value="{{switch1}}" bind:change="onChange" slot="footer"></i-switch>
+    </i-cell>
+</view>
+
+<view style="margin-top: 36rpx" bindtap="delAddress" wx:if="{{!isAdd}}">
+  <i-cell title="删除收货地址" i-class='t-color'></i-cell>
+</view>
+
+<view class="add-btn" wx:if="{{noValue}}" style="color: #fff; background-color: #ccc;">保存</view>
+<view class="add-btn"  wx:else bindtap="ManagePersonAddress">保存</view>

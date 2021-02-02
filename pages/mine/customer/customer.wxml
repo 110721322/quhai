@@ -1,0 +1,13 @@
+<!--pages/mine/customer/customer.wxml-->
+<view class="tips">有疑问请拨打客服电话或添加客服微信进行咨询。我们会第一时间为您解答疑惑。同时也欢迎大家提出意见，您的宝贵建议是我们更好服务的基础。谢谢。</view>
+<view class="btn-box">
+  <view class="customer-tel" bindtap="callCustomer">拨打客服电话
+    <image src="../../../image/tel.png"></image>
+  </view>
+</view>
+<view class="btn-box">
+  <view class="customer-wx" bindtap="wxCustomer">添加客服微信
+    <image src="../../../image/wx.png"></image>
+  </view>
+</view>
+

@@ -1,0 +1,51 @@
+<view class="tips" wx:if="{{ orderList && orderList.length > 0}}">
+  <image src="../../../image/tips.png"></image>
+</view>
+<view class="order-box" wx:for="{{orderList}}" wx:key>
+  <view class="order-item">
+    <view class="item-top">
+      <view class="type">
+        <image src="../../../image/badminton.png" class="ball-pic"></image>
+        <view>{{item.storetype}}</view>
+        <image src="../../../image/free.png" class="member-free"></image>
+      </view>
+      <view class='status round '>{{item.state}}</view>
+    </view>
+    <view class="item-mid">
+      <view class="mid-title">预约时间</view>
+      <view class="mid-time">{{item.date}}</view>
+      <view class="mid-time">{{item.start}}-{{item.end}}</view>
+     <!--  -->
+      <view class="cancel" bindtap="cancelOrder" data-id="{{item.id}}" data-name="{{item.storename}}" data-time="{{item.F_SureTime}}" wx:if="{{ item.state && item.state != '进行中' && item.isconfirm === '0'  }}">取消订单</view>
+      <view class="sure-btn" data-id="{{item.id}}" data-address="{{item.address}}" data-fencedistance="{{item.fencedistance}}" bindtap="ArriveConfirm" wx:if="{{item.isconfirm === '0'}}" >确认到店</view>
+      <view class="sure-btn2" wx:else >已确认</view>
+    </view>
+    <view class="item-bottom">
+      <view class="space">场地名：{{item.storename}}</view>
+      <view class="adress-box">
+        <view class="adress">{{item.address}}</view>
+        <view class="item-distance" bindtap="shopNavigation" data-long='{{item.lng}}' data-lat='{{item.lat}}' data-address='{{item.address}}'>
+          <image src='../../../image/navigate.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cancel-box{{ tipShow ? 'show' : ''}}">
+  <view class="tip-title">取消确认</view>
+  <view class="tip-main">确认取消{{tipName}} {{tipTime}}场次吗？</view>
+  <view class="tip-bottom flex">
+    <view class="tip-btn btn-left" bindtap="tipCancel">取消</view>
+    <view class="tip-btn btn-right" bindtap="tipSure">确认</view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{ orderList && orderList.length == 0 || !islogin }}">
+  <image src="../../../image/noData.png"></image>
+  <view class="no-tip">您还没有预约单哦</view>
+</view>
+<i-toast id="toast" />
+<i-modal visible="{{ visible2 }}" show-cancel='{{cancel}}' bind:ok="handleClose2">
+    <view>未进入签到范围</view>
+</i-modal>
+<view class="black{{ tabShow ? 'mask' : ''}}" bindtap='showHidden' catchtouchmove='true'></view>

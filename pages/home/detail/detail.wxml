@@ -1,0 +1,32 @@
+<!--pages/home/detail/detail.wxml-->
+<import src="../../../lib/wxParse/wxParse.wxml"/>
+
+<swiper class="banner "  circular="true" indicator-dots='true' interval="5000" duration="500" indicator-active-color='#fff'   bindchange='swiperChange' wx:if='{{swiperItem[0]}}'>
+  <swiper-item wx:for="{{goodsInfo.bannerImage}}" wx:key id='pad' class="{{cardCur==index?'cur':''}}">
+    <image src="{{item}}"></image>
+  </swiper-item>
+</swiper>
+<view class="title-box flex row">
+  <view class="left-box">
+    <view class="title">{{goodsInfo.commodityname}}</view>
+    <view class="posi d-money" style="color: #FF5733">
+      定金：￥<text style="font-size: 28rpx">{{goodsInfo.onlinepayment}}</text> 
+      <view class="re-price">返￥{{goodsInfo.rebate}}</view>
+    </view>
+    <view class="s-money">需到店支付：￥<text style="font-size: 28rpx">{{goodsInfo.offlinepayment}}</text> 
+    </view>
+  </view>
+  <view class="right-box">
+    活动价:￥{{goodsInfo.price}}
+  </view>
+</view>
+<view class="add posi flex row">
+  <view>购买数量</view>
+  <i-input-number value="{{ value1 }}"  min="0" max="100" bindchange="handleChange1"  />
+</view>
+<view class="detail-info" style="margin-bottom:114rpx">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+
+
+<view class="btn" bindtap="payMent">立即抢购</view>

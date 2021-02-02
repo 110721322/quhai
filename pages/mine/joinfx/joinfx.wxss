@@ -1,0 +1,19 @@
+/* pages/mine/joinfx/joinfx.wxss */
+.fx{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.fx image{
+  width: 100%;
+}
+
+.fix-btn{
+  width: 100%;
+  height: 300rpx;
+  
+  position: fixed;
+  left: 0;
+  top: 68%;
+}

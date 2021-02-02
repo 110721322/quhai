@@ -1,0 +1,8 @@
+<!--pages/mine/login/login.wxml-->
+<view class="login-box">
+  <image src="http://renxuanwang.com/quhai.png"></image>
+  <view class="login-title">趣嗨Zone</view>
+  <view class="login-main">会员可免费使用在平台内的场地进行打球体育娱乐活动</view>
+  <button class="login-btn button-hover" open-type="getUserInfo" bindgetuserinfo="getUserInfo" hidden='{{userhide}}'> 获取用户信息 </button>
+  <button class="login-btn button-hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hidden='{{telhide}}'> 获取手机号 </button>
+</view>

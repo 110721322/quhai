@@ -1,0 +1,49 @@
+<!--component/cityList/cityList.wxml-->
+
+<view class="cu-bar bg-white search fixed">
+  <view class='search-form round'>
+    <text class="icon-search"></text>
+    <input type="text" placeholder="输入地址" confirm-type="search" bindinput="getSuggestion"></input>
+  </view>
+  <!-- <view class='action'>
+    <button class='cu-btn bg-gra  dual-green shadow-blur round' >搜索</button>
+  </view> -->
+</view>
+<view class='posit-content'>
+  <view class='posit'>
+    <image class='posit-before' src='http://renxuanwang.com/%E5%95%86%E5%9C%88positioning-ic@2x.png' bindtap='onBack'></image>
+    <view class='local' data-latitude='{{latitude}}'  data-longitude='{{longitude}}' bindtap='selectCity'>当前：{{location}}</view>
+    <image class='posit-after' src='http://renxuanwang.com/ic-more@2x.png' data-latitude='{{latitude}}'  data-longitude='{{longitude}}' bindtap='selectCity'></image>
+    <image class='reposit-before' src='http://renxuanwang.com/refresh.png'></image>
+    <view class='reposit' bindtap='reposit'>重新定位</view>
+  </view>
+  <view class='history'>
+    <!-- <view class='history-list'>附近地址</view> -->
+    <view class='item-list' wx:for="{{searchList}}" wx:key>
+      <view class='history-item' bindtap="sureAdress" data-local='{{item.location}}' data-title='{{item.title}}'>{{item.title}}</view>
+    </view>
+  </view>
+</view>
+<!-- <scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style='height:calc(100vh - {{CustomBar}}px)' scroll-with-animation="true" enable-back-to-top="true">
+  <block wx:for="{{listArr}}" wx:key data-index='{{index}}'>
+    <view class='padding indexItem-{{index}}' id="indexes-{{list[index]}}" wx:if='{{listArr[index].length >= 1}}'>{{list[index]}}</view>
+    <view class="cu-list menu menu-avatar no-padding margin-t">
+      <view class="cu-item" wx:for="{{listArr[index]}}" wx:key bindtap='selectCity' data-location='{{item.location}}'>
+        <view class='content'>
+          <view class='text-grey'>
+            <text class='text-abc'>{{item.fullname}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+<view class='indexBar' style='height:calc(100vh - {{CustomBar}}px - 50px)'>
+  <view class='indexBar-box' bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+    <view class="indexBar-item " wx:for="{{list}}" wx:key id='{{index}}' bindtouchstart="getCur" bindtouchend="setCur">{{list[index]}}</view>
+  </view>
+</view> -->
+<!--选择显示-->
+<!-- <view hidden="{{hidden}}" class="indexToast">
+  {{listCur}}
+</view> -->

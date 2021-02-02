@@ -1,0 +1,36 @@
+/* pages/mine/addAddress/addAddress.wxss */
+.address-item{
+  height: 108rpx;
+}
+
+.item-h{
+  height: 108rpx;
+}
+
+.region-picker{
+  background-color: #fff;
+  line-height: 108rpx;
+  padding: 14rpx 30rpx;
+}
+
+.a-switch{
+  background-color: #fff;
+  height: 80rpx;
+  margin: 18rpx 0;
+}
+
+.t-color{
+  color: #FF3B0D;
+}
+
+.add-btn{
+  width:560rpx;
+  height:100rpx;
+  background:rgba(255,87,51,1);
+  border-radius:50rpx;
+  margin: 170rpx auto;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+}
