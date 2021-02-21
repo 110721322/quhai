@@ -349,6 +349,12 @@ formSubmit(address) {
     })
     that.formSubmit(e.currentTarget.dataset.address)
   },
+  toGuide() {
+    wx.navigateTo({
+      url: '../guide/guideIndex',
+    })
+  },
+  
   bindDateChange: function(e) {
     let that = this;
     console.log('picker发送选择改变，携带值为', e.detail.value);

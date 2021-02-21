@@ -1,0 +1,5 @@
+<!--pages/home/guide/guideIndex.wxml-->
+<view>
+  <view>网卡指南页面</view>
+  <button bindtap="toBuy">立即购买</button>
+</view>

@@ -1,7 +1,8 @@
 {
   "pages": [
-    
     "pages/home/home/home",
+    "pages/home/guide/guideIndex",
+    
     "pages/mall/mall/mall",
     "pages/mine/customer/customer",
     "pages/mine/mine/mine",

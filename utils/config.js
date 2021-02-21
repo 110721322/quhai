@@ -13,7 +13,7 @@ let EV_DOMAIN_ES = {
   prod: "https://www.renxuanwang.com/es"
 };
 
-let EVN = 'prod';
+let EVN = 'dev';
 let baseUrl = EVN_DOMAIN[EVN];
 let esBaseUrl = EV_DOMAIN_ES[EVN];
 

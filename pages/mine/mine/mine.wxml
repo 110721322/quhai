@@ -58,7 +58,7 @@
   </view>
   <view class="cu-item arrow" catchtap='tofx'>
     <view class='content' hover-class='none'>
-      <text class='text-co'>加入分销</text>
+      <text class='text-co'>我的分销</text>
     </view>
   </view>
   <view class="cu-item arrow" catchtap='toAddress'>
